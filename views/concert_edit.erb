@@ -1,0 +1,31 @@
+<h1>Venue by the name of <%= @concert.concert %></h1>
+<form id="form_id" action="/concert/<%= @concert.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="text" name="new_recipe" placeholder=" rename concert">
+  <button name="submit"class="btn btn-primary">Submit</button>
+
+</form>
+
+
+
+<form action="/concert/<%= @concert.id %>/band/new" method="post">
+  <select id="band" name="band" type="text">
+  <% @bands.each do |i| %>
+    <option value="<%= i.id %>"><%= i.band %></option>
+  <% end %>
+  </select>
+  <button name="submit"class="btn btn-primary">Add band</button>
+</form>
+
+<ul>
+  <% @concert.bands.each do |i| %>
+  <li><%= i.band %></li>
+  <% end %>
+</ul>
+
+
+
+<form id="form_id" action="/concert/<%= @concert.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button name="delete"class="btn btn-danger">Delete</button>
+</form>
