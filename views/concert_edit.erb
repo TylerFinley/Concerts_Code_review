@@ -1,7 +1,7 @@
-<h1>Venue by the name of <%= @concert.concert %></h1>
+<h1>Venue by the name of <%= @concert.concert.capitalize %></h1>
 <form id="form_id" action="/concert/<%= @concert.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
-  <input type="text" name="new_recipe" placeholder=" rename concert">
+  <input type="text" name="new_concert" placeholder=" rename concert">
   <button name="submit"class="btn btn-primary">Submit</button>
 
 </form>
@@ -19,7 +19,7 @@
 
 <ul>
   <% @concert.bands.each do |i| %>
-  <li><%= i.band %></li>
+  <li><%= i.band.capitalize %></li>
   <% end %>
 </ul>
 

@@ -9,7 +9,7 @@
 
 <ul>
   <% @concerts.each do |concert|%>
-  <li><a href="/concert/<%= concert.id %>"><%= concert.concert %></a></li>
+  <li><a href="/concert/<%= concert.id %>"><%= concert.concert.capitalize %></a></li>
 
   <%end%>
 

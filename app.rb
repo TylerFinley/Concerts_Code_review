@@ -59,10 +59,10 @@ get '/concert/:cid' do
 end
 
 patch '/concert/:cid' do
-  cid = params.fetch('cid')
-  new_concert = params.fetch(new_concert)
-  concert = Concert.find(cid)
-  concert.update({:concert => new_concert})
+  new_concert = params.fetch('new_concert')
+  id = params.fetch('cid')
+  concert = Concert.find(id)
+  concert.update({concert: new_concert})
   redirect "/concerts"
 end
 
@@ -82,8 +82,8 @@ post '/concert/:cid/band/new' do
   cid = params.fetch('cid')
   fetched_band = Band.find(params['band'].to_i)
   concert = Concert.find(cid)
-  new_band = Band.new(band: fetched_band)
-  new_band.save
+  # new_band = Band.new(band: fetched_band)
+  # new_band.save
   concert.bands.push(fetched_band)
   redirect "/concert/#{cid}"
 end
